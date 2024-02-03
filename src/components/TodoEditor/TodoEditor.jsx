@@ -7,7 +7,7 @@ export class TodoEditor extends Component{
     }
 
     onFormSubmit=(e)=>{
-        e.preventDafault();
+        e.preventDefault();
         console.log(e.currentTarget.elements.goal.value)
         this.props.addToDo(e.currentTarget.elements.goal.value);
         this.setState({
