@@ -11,8 +11,8 @@ export class App extends Component{
     filter: '',
   }
 
+
   addToDo = (text) => {
-    console.log(text)
     const newToDo = {
       text,
       completed: false,
@@ -26,11 +26,25 @@ export class App extends Component{
     })
   }
 
+  deleteToDo = (todoId) => {
+    this.setState(prevState => {
+        return{
+          todos: prevState.todos.filter(todo => todo.id !== todoId)
+        }
+      })
+    }
+
+    toggleCompleted = (todoId) => {
+      this.setState(prevState => (
+        {todos: prevState.todos.map(todo => todo.id === todoId ? {...todo, completed: !todo.completed} : todo)}
+      ))
+    }
+
   render(){
     return(
       <>
         <TodoEditor addToDo={this.addToDo}/>
-        <TodoList toDos={this.state.toDos}/>
+        <TodoList toDos={this.state.toDos} onDelete={this.deleteToDo} onToggleCompleted={this.toggleCompleted}/>
       </>
     )
   }
