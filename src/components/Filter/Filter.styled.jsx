@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const FilterContainer = styled.div`
-
-`
+export const FilterContainer = styled.div``
 
 export const Input = styled.input`
     width: 300px;
