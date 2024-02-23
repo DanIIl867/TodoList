@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const FilterContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+
 `
 
 export const Input = styled.input`

@@ -11,6 +11,7 @@ border: none;
 background-color: ${p=>p.theme.colors.button};
 color:${p=>p.theme.colors.bgColor};
 font-size: 18px;
+cursor: pointer;
 
 &:hover{
 background-color: ${p=>p.theme.colors.accent};

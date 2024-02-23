@@ -1,13 +1,18 @@
-import { Button } from "components/Button/Button"
+import { Btn } from "components/Button/Button"
+import {List, Input} from "./ToDo.styled"
 
+export function ToDo({todoId, text, completed, onDelete, onToggleCompleted}){
 
-export function ToDo({id, text, completed, onDelete, onToggleCompleted}){
+    const handleDelete = () => {
+        onDelete(todoId)
+    }
+    
 
     return(
-        <li>
-            <input type="checkbox" name='lisince' checked={completed} onChange={()=>onToggleCompleted(id)}/>
-            <p>{text}</p>
-            <Button type="button" onClick={()=>onDelete(id)}>Delete</Button>
-        </li>
+        <List>
+            <Input type="checkbox" name='lisince' checked={completed} onChange={()=>onToggleCompleted(todoId)}/>
+            <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>{text}</p>
+            <Btn type="button" onClick={handleDelete}>Delete</Btn>
+        </List>
     )
 }
